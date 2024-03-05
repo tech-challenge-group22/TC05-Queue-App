@@ -1,0 +1,62 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Projeto Lanchonete | Tech Challenge",
+    "description": "API Documentation",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "basePath": "/",
+  "paths": {
+    "/orderqueue": {
+      "get": {
+        "tags": ["Queue"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "order_id",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fila de pedidos listadas com sucesso"
+          },
+          "400": {
+            "description": "Erro ao listar fila"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Queue"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "order_id",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Status alterado com sucesso"
+          },
+          "400": {
+            "description": "Faltando parametro , favor prover o ID do pedido"
+          }
+        }
+      }
+    }
+  }
+}
